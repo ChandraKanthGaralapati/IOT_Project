@@ -3,7 +3,11 @@ app = Flask(__name__)                                                 # Create F
 import serial
                                      # Change your IP Address here
 s = serial.Serial('COM2',9600)                                        # Define Serial  Communication Baud rate
-
+statusObj = {
+   "gas": "NO",
+   "flame": "NO",
+   "ph": "NO"
+}
 flag = False
 
 @app.route('/') 
@@ -13,7 +17,7 @@ def index():
 
 @app.route('/dashboard')                                                   # Entry point for web servelet
 def dashboard():
-   return render_template("dashboard.html")  # Jump to home page
+   return render_template("dashboard.html", statusObj=statusObj)  # Jump to home page
 
 @app.route('/loginservelate',methods = ['POST', 'GET'])
 def loginservelate():
@@ -26,7 +30,7 @@ def loginservelate():
         else:
             flag=0                                                       # if ID and Password is not correct then open not succesfull webpage
         if(flag==1):                                                    # if ID and Password is correct then only open bulb control web page
-            return render_template("dashboard.html") #Open User Home Page webpage
+            return render_template("dashboard.html", statusObj=statusObj) #Open User Home Page webpage
         else:
             return render_template("unsuccessfull.html",name=username)     # Open uncessfull webpage
     except:
@@ -39,14 +43,17 @@ def login():
 @app.route('/Gas_Sensor',methods = ['POST', 'GET'])                   # If light OFF button press then open this servelet 
 def Gas_Sensor():
    global flag 
+   global statusObj
    status = request.form['gas_status']
    try:
       if(flag==1):                                                   # check valid user
          if status == "1":
             s.write(b'a')
+            statusObj["gas"] = "YES"
          elif status == "0":
-            s.write(b'b')                                               # Send 'b' value to proteus software when bulb off detected 
-         return render_template("dashboard.html") #Refresh the control panel webpage after button press
+            s.write(b'b')
+            statusObj["gas"] = "NO"                                               # Send 'b' value to proteus software when bulb off detected 
+         return render_template("dashboard.html", statusObj=statusObj) #Refresh the control panel webpage after button press
       else:
          return render_template("login.html")  # If user name and password is not correct then after button press then jump to login page 
    except:
