@@ -75,8 +75,9 @@
                     <p>This is a gas sensor that can be used to detect the presence of gas in the room.</p>
                     <form action="http://127.0.0.1:5000/Gas_Sensor" method="POST">
                         Setting the logic state: <br>
-                        <input type="radio" name="gas_status" value="1"> 1<br>
-                        <input type="radio" name="gas_status" value="0"> 0
+                        <input type="radio" name="gas_status" value="1"> Gas Leakage
+                        <br><br>
+                        <input type="radio" name="gas_status" value="0"> Stop Gas Leakage
                         <br><br>
                         <input type="submit" value="Submit">
                     </form>
@@ -88,10 +89,10 @@
                 <div id="flame-sensor">
                     <h1>Flame Sensor</h1>
                     <p>This is a flame sensor that can be used to detect the presence of flame in the room.</p>
-                    <form>
-                        <input type="radio" name="status" value="1"> Flame Detected
+                    <form action="http://127.0.0.1:5000/Flame_Sensor" method="post">
+                        <input type="radio" name="flame_status" value="1"> Start Fire
                         <br><br>
-                        <input type="radio" name="status" value="0"> No Flame Detected
+                        <input type="radio" name="flame_status" value="0"> Put Off Fire
                         <br><br>
                         <input type="submit" value="Submit">
                     </form>
@@ -100,13 +101,13 @@
                         Flame Detected: {{ statusObj['flame'] }}
                     </div>
                 </div>
-                <div id="gas-sensor">
+                <div id="ph-sensor">
                     <h1>PH Sensor</h1>
                     <p>This is a PH sensor that can be used to detect the value of PH in the room.</p>
-                    <form>
-                        <input type="radio" name="status" value="1"> Place Holder
+                    <form action="http://127.0.0.1:5000/Ph_Sensor" method="post">
+                        <input type="radio" name="ph_status" value="1"> Place Holder
                         <br><br>
-                        <input type="radio" name="status" value="0"> Place Holder
+                        <input type="radio" name="ph_status" value="0"> Place Holder
                         <br><br>
                         <input type="submit" value="Submit">
                     </form>
