@@ -17,14 +17,13 @@
         <div>
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="index.php">Job Portal</a>
+                    <a class="navbar-brand" href="index.html">IOT Project</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="login.php">Login</a>
-                            <a class="nav-link" href="register.php">Register</a>
+                            <a class="nav-link active" aria-current="page" href="login.html">Login</a>
                         </div>
                     </div>
                 </div>
@@ -36,9 +35,8 @@
             <form action="./script/login_config.php" method="POST">
                 
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" name='email' id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <label for="exampleInputEmail1" class="form-label">User Name</label>
+                    <input type="text" class="form-control" name='username' id="exampleInputEmail1" placeholder="John_Doe">
                 </div>
 
                 <div class="mb-3">
@@ -47,8 +45,6 @@
                 </div>
 
                 <button type="submit" name='login' class="btn btn-primary">Login</button>
-
-                <p>New User? <br> Create Account <a href="register.php">Sign Up</a></p>
             </form>
         </div>
 
