@@ -16,14 +16,14 @@
         <title>Home</title>
     </head>
 
-    <body class="bg-image d-flex h-100 text-center text-white bg-dark" style=" background-image: url(./images/home.png); background-size: cover">
+    <body class="bg-image d-flex h-100 text-center text-white bg-dark" style=" background-image: url({{url_for('static', filename='images/home.png')}}); background-size: cover;">
     
         <div class="cover-container d-flex  p-3 mx-auto flex-column-expand">
             <header class="mb-auto">
                 <div>
                     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
-                            <a class="navbar-brand"  aria-current="page" href="index.html">IOT Project</a>
+                            <a class="navbar-brand"  aria-current="page" href="http://127.0.0.1:5000/index">IOT Project</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
