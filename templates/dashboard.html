@@ -49,6 +49,9 @@
                     <li>
                         <a href="#ph-sensor">PH Sensor</a>
                     </li>
+                    <li>
+                        <a href="#ir-sensor">IR Sensor</a>
+                    </li>
                 </ul>
             </nav>
             <div id="content">
@@ -103,11 +106,11 @@
                 </div>
                 <div id="ph-sensor">
                     <h1>PH Sensor</h1>
-                    <p>This is a PH sensor that can be used to detect the value of PH in the room.</p>
+                    <p>This is a PH sensor that can be used to detect the value of PH in the room and even some solutions.</p>
                     <form action="http://127.0.0.1:5000/Ph_Sensor" method="post">
-                        <input type="radio" name="ph_status" value="1"> Place Holder
+                        <input type="radio" name="ph_status" value="1"> Ph Detected
                         <br><br>
-                        <input type="radio" name="ph_status" value="0"> Place Holder
+                        <input type="radio" name="ph_status" value="0"> Not Detected
                         <br><br>
                         <input type="submit" value="Submit">
                     </form>
@@ -116,6 +119,23 @@
                         PH Detected: {{ statusObj['ph'] }}
                     </div>
                 </div>
+
+                <div id="ir-sensor">
+                    <h1>IR Sensor</h1>
+                    <p>This is a IR sensor that can be used to detect any objects are placed as obstacle in the room. ( like for covering camera etc., )</p>
+                    <form action="http://127.0.0.1:5000/IR_Sensor" method="post">
+                        <input type="radio" name="ir_status" value="1"> Place Obstacle
+                        <br><br>
+                        <input type="radio" name="ir_status" value="0"> Remove Obstacle
+                        <br><br>
+                        <input type="submit" value="Submit">
+                    </form>
+                    <br>
+                    <div class="alert alert-info">
+                        IR Sensor Output(Detection): {{ statusObj['ir'] }}
+                    </div>
+                </div>
+
             </div>
         </div>
 
